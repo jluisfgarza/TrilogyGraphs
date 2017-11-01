@@ -5,6 +5,8 @@
 #include "functions.inc"
 #include "metals.inc"
 #include "textures.inc"
+#include "palm1.inc"
+#include "palm2.inc"
 
 camera {
   location  <0.0, 2, -5.0>
@@ -267,4 +269,75 @@ object {
 	scale <3.5,1,1>
 }
 
+//PALMS
 
+#declare LEAVES = object {
+    palm_13_leaves
+    pigment { color rgb <0, 0.9, 0> }
+}
+
+#declare STEMS = object {
+    palm_13_stems
+    pigment { color rgb <144/255, 104/255, 78/255> }
+}
+
+#declare PALM = union {
+    object { LEAVES }
+    object { STEMS }
+}
+ 
+ object {PALM
+	scale <0.2, 0.2, 0.2>
+	translate <2, 0, 0>
+ }
+ 
+  object {PALM
+	scale <0.2, 0.2, 0.2>
+	translate <2, -1, -0.6>
+ }
+ 
+  object {PALM
+	scale <0.2, 0.2, 0.2>
+	translate <0.9, 0, 1>
+ }
+ 
+   object {PALM
+	scale <0.2, 0.2, 0.2>
+	translate <1.2, 0, -0.5>
+ }
+ 
+ object {PALM
+	scale <0.2, 0.2, 0.2>
+	translate <1.2, 0, -0.8>
+ }
+ 
+object {PALM
+	scale <0.2, 0.2, 0.2>
+	translate <0, 0, 0>
+ }
+
+ 
+ object {PALM
+	scale <0.2, 0.2, 0.2>
+	translate <0.3, 0, -0.5>
+ }
+ 
+  object {PALM
+	scale <0.2, 0.2, 0.2>
+	translate <-0.8, 0, -0.4>
+ }
+ 
+  object {PALM
+	scale <0.2, 0.2, 0.2>
+	translate <-0.5, -1, 0>
+ }
+ 
+ object {PALM
+	scale <0.2, 0.2, 0.2>
+	translate <-1.5, 0, 1>
+ }
+ 
+  object {PALM
+	scale <0.2, 0.2, 0.2>
+	translate <-1.5, 0, -0.7>
+ }
