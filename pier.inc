@@ -3,19 +3,22 @@
 #include "woods.inc"
 
 camera {
-	location <10,10,-30>
-	look_at <4,4,0>
-	angle 35
+  location  <0.0, 2, -5.0>
+  look_at   <0.0, 1,  0.0>
+}       
+
+background {
+	rgb <0.85,0.95,1>
 }
           
-#declare R = 0.20; //radius of tubes                                 
+#declare R = 0.20; //radius                              
 
 union{    
     box {
     	<0,0,0>, <3,0.5,10> 
     	texture {T_Wood7}
     	translate <-1.5, 0,-1.2>
-    } 
+    }      
     // 4 in z direction
     cylinder {
         <-1,-1,-1>,<-1, 1,-1>,R
@@ -49,5 +52,5 @@ union{
         <-1,-1,-1>,<-1, 1,-1>,R
         translate <-.3, -.3, 9>
     }
-    texture{T_Wood7}
+    texture{T_Wood7}     
 }
