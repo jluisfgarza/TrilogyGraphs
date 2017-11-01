@@ -387,7 +387,7 @@ union{
 }
 
 //JULIA FRACTAL
-julia_fractal
+#declare SHELL = julia_fractal
 { 
 	<-.4, .2, .3, -.2>
   	quaternion sqr
@@ -398,21 +398,14 @@ julia_fractal
     		reflection { .2, .8 }
   	}
   	rotate z*-20
-  	translate <10, 1.7, -7>
-  	scale <0.1, 0.1, 0.1>
 }
 
-julia_fractal
-{ 
-	<-.4, .2, .3, -.2>
-  	quaternion sqr
-  	max_iteration 8
-  	precision 50
-  	pigment { color White }
-  	finish { 
-    		reflection { .2, .8 }
-  	}
-  	rotate z*-20
-  	translate <0, 5, 0>
+  object {SHELL
+	translate <10, 1.8, -18>
   	scale <0.1, 0.1, 0.1>
-}
+ }
+ 
+   object {SHELL
+	translate <-7, 6, -8>
+	scale <0.1, 0.1, 0.1>
+ }                                                   
