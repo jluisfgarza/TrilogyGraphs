@@ -273,7 +273,7 @@ object {
 
 #declare LEAVES = object {
     palm_13_leaves
-    pigment { color rgb <0, 0.9, 0> }
+    pigment { color rgb <11/255, 97/255, 11/255> }
 }
 
 #declare STEMS = object {
