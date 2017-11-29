@@ -47,7 +47,8 @@ void init(void)
     // load an image file directly as a new OpenGL texture
     tex_2d = SOIL_load_OGL_texture
     (
-        "D:/Desktop/Github/TrilogyGraphs/Project 3 OpenGL Project/mexico.png",
+        //"D:/Desktop/Github/TrilogyGraphs/Project 3 OpenGL Project/mexico.png",
+        "/Users/elielr01/Documents/9no Semestre ITC/Gráficas Computacionales/Prueba/Prueba/mexico.png",
         SOIL_LOAD_AUTO,
         SOIL_CREATE_NEW_ID,
         SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
@@ -134,6 +135,398 @@ void drawBar( float x_coordinate, float z_coordinate,float height, float red, fl
 
 }
 
+void drawStates() {
+    
+    float height = 1;
+    float red = 1;
+    float green = 0;
+    float blue = 0;
+    
+    //Baja California Norte
+    drawBar(-12, -6, height, red, green, blue, 0.4);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Baja California Sur
+    drawBar(-9, -2, height, red, green, blue, 0.4);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Sonora
+    drawBar(-7.7, -5.1, height, red, green, blue, 0.5);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Chihuahua
+    drawBar(-3.7, -4.2, height, red, green, blue, 0.5);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Coahuila
+    drawBar(0.5, -2.2, height, red, green, blue, 0.5);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Nuevo Leon
+    drawBar(2.8, -1.3, height, red, green, blue, 0.3);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Tamaulipas
+    drawBar(4, 0.5, height, red, green, blue, 0.4);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    // Sinaloa
+    drawBar(-4.3, -0.3, height, red, green, blue, 0.3);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Durango
+    drawBar(-2.1, -0.3, height, red, green, blue, 0.4);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Zacatecas
+    drawBar(-0.4, 0.7, height, red, green, blue, 0.4);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //San Luis Potosi
+    drawBar(1.8, 0.9, height, red, green, blue, 0.4);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Nayarit
+    drawBar(-2.4, 2, height, red, green, blue, 0.3);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Aguascalientes
+    drawBar(0.2, 1.9, height, red, green, blue, 0.2);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Jalisco
+    drawBar(-1.8, 4, height, red, green, blue, 0.4);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Guanajuato
+    drawBar(1.4, 3.1, height, red, green, blue, 0.3);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Querétaro
+    drawBar(2.6, 3.1, height, red, green, blue, 0.2);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Hidalgo
+    drawBar(3.6, 3.2, height, red, green, blue, 0.25);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Veracruz
+    drawBar(6, 5.1, height, red, green, blue, 0.3);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Michoacán
+    drawBar(1, 4.7, height, red, green, blue, 0.3);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Colima
+    drawBar(-1.5, 4.9, height, red, green, blue, 0.2);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    //Edo. México
+    drawBar(2.8, 4.6, height, red, green, blue, 0.2);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    // DF
+    drawBar(3.3, 4.8, height, red, green, blue, 0.1);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    // Morelos
+    drawBar(3.3, 5.3, height, red, green, blue, 0.15);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    // Tlaxcala
+    drawBar(4.4, 4.5, height, red, green, blue, 0.15);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    // Puebla
+    drawBar(4.4, 5.5, height, red, green, blue, 0.25);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    // Guerrero
+    drawBar(2.5, 6.3, height, red, green, blue, 0.4);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    // Oaxaca
+    drawBar(6.2, 6.9, height, red, green, blue, 0.4);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    // Yucatan
+    drawBar(13.8, 3.2, height, red, green, blue, 0.4);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    // Quintana Roo
+    drawBar(14.2, 4.8, height, red, green, blue, 0.4);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    // Campeche
+    drawBar(12.3, 5.2, height, red, green, blue, 0.4);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    // Tabasco
+    drawBar(9.5, 6, height, red, green, blue, 0.2);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+    
+    // Chiapas
+    drawBar(10.5, 7.5, height, red, green, blue, 0.4);
+    
+    if (red == 0.0) {
+        red = 1.0;
+        green = 0.0;
+    }
+    else {
+        red = 0.0;
+        green = 1.0;
+    }
+}
+
 void sceneRenderer(void) {
 
     glMatrixMode(GL_MODELVIEW);
@@ -145,22 +538,22 @@ void sceneRenderer(void) {
     // Set up the camera.
     gluLookAt(truckX, truckY, truckZ, dollyX, dollyY, dollyZ, boomX, boomY, boomZ);
     glTranslatef(translateX, translateY, translateZ);
-    glTranslatef(0.0,0.0,5.5);
+    //glTranslatef(0.0,-1,-5);
+    glTranslatef(0.0,-1,5);
 
     //glPushMatrix();
     glRotatef(rotateX, 1.0f, 0.0f, 0.0f);
     glRotatef(rotateY, 0.0f, 1.0f, 0.0f);
     glRotatef(rotateZ, 0.0f, 0.0f, 1.0f);
     glScalef(scaleX, scaleY, scaleZ);
+    
+    //glRotatef(20, 1, 0, 0);
 
     glPushMatrix();
 
     /* Draw Mexico Map */
     glEnable(GL_TEXTURE_2D);
     glBindTexture (GL_TEXTURE_2D, tex_2d);
-
-    //glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    //glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
     glBegin(GL_QUADS);
     glColor4f(1,1,1,1);
@@ -175,58 +568,9 @@ void sceneRenderer(void) {
     glEnd();
 
     glDisable(GL_TEXTURE_2D);
-
-    /* Draw the cube canvas */
-    glBegin(GL_QUADS);        // Draw partial cube with QUADS
-    glColor4f(0.8f,0.8f,0.8f, 1);    // Color Orange
-    glVertex3f( 1.0f,-1.0f, 1.0f);    // Top Right Of The Quad (Bottom)
-    glVertex3f(-1.0f,-1.0f, 1.0f);    // Top Left Of The Quad (Bottom)
-    glVertex3f(-1.0f,-1.0f,-1.0f);    // Bottom Left Of The Quad (Bottom)
-    glVertex3f( 1.0f,-1.0f,-1.0f);    // Bottom Right Of The Quad (Bottom)
-    glColor4f(0.5f,0.5f,0.5f, 1);
-    glVertex3f( 1.0f,-1.0f,-1.0f);    // Top Right Of The Quad (Back)
-    glVertex3f(-1.0f,-1.0f,-1.0f);    // Top Left Of The Quad (Back)
-    glVertex3f(-1.0f, 1.0f,-1.0f);    // Bottom Left Of The Quad (Back)
-    glVertex3f( 1.0f, 1.0f,-1.0f);    // Bottom Right Of The Quad (Back)
-    glColor4f(0.5f,0.5f,0.5f, 1);     // Color Blue
-    glVertex3f(-1.0f, 1.0f, 1.0f);    // Top Right Of The Quad (Left)
-    glVertex3f(-1.0f, 1.0f,-1.0f);    // Top Left Of The Quad (Left)
-    glVertex3f(-1.0f,-1.0f,-1.0f);    // Bottom Left Of The Quad (Left)
-    glVertex3f(-1.0f,-1.0f, 1.0f);    // Bottom Right Of The Quad (Left)
-    glEnd();            // End drawing partial cube
-
-
-    /* Draw Strips */
-
-    /* Back Strips */
-    float y_strip = 0.75;
-    for (int i = 1 ; i <= 7; i++, y_strip-=0.25) {
-        glBegin(GL_QUADS);
-        glColor4f(1,1,1,1);
-        glVertex3f( 1.0f, y_strip,-1.0f);    // Top Right Of The Quad (Back)
-        glVertex3f(-1.0f, y_strip,-1.0f);    // Top Left Of The Quad (Back)
-        glVertex3f(-1.0f, y_strip - 0.02,-1.0f);    // Bottom Left Of The Quad (Back)
-        glVertex3f( 1.0f, y_strip - 0.02,-1.0f);    // Bottom Right Of The Quad (Back)
-        glEnd();
-    }
-
-    /* Left Strips */
-    y_strip = 0.75;
-    for (int i = 1 ; i <= 7; i++, y_strip-=0.25){
-        glBegin(GL_QUADS);
-        glColor4f(1,1,1,1);     // Color Blue
-        glVertex3f(-1.0f, y_strip, 1.0f);    // Top Right Of The Quad (Left)
-        glVertex3f(-1.0f, y_strip,-1.0f);    // Top Left Of The Quad (Left)
-        glVertex3f(-1.0f, y_strip - 0.02,-1.0f);    // Bottom Left Of The Quad (Left)
-        glVertex3f(-1.0f, y_strip - 0.02, 1.0f);    // Bottom Right Of The Quad (Left)
-        glEnd();
-    }
-
-    /* Draw the bars */
-    drawBar(0.8, 0.8, 0.8, 1.0, 0.0, 0.0);
-    drawBar(0.8, 0.1, 0.25, 0.0, 1.0, 0.0);
-    drawBar(0.1, 0.1, 0.5, 0.0, 0.0, 1.0);
-    drawBar(-0.6, -0.6, 0.9, 1.0, 1.0, 0.0);
+    
+    //Draw the bars per states
+    drawStates();
 
     glFlush();
     glutSwapBuffers();
