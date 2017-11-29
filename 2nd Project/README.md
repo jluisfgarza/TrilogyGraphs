@@ -1,0 +1,2 @@
+# TrilogyGraphs
+Computer graphics course 
