@@ -7,3 +7,10 @@ Computer Graphics Course Project 1: Blender Project
 | Deliverable | A ZIP file containing: A jpg image showing your rendered model. Blender project file. Original code of fractal program generation. A PPT file with an executive summary touching all point of the rubric. Upload also a jpg preview of your project |
 | Date and Time | Web Sep 13 |
 | Delivery Mode | This homework is team based activity. Do the project lab in Blender. Make a jpg file containing the results of your project. Upload your Blender project file, the ppt presentation, the fractal generating code and the jpg rendering to platform using the appropriate link n this web page. Assistance to team presentation is mandatory. All participants must show equal mastery of presented subject and must speak approximately equal time with equal difficulty in spoken topics |
+
+## Final product
+Final Files where too large for uploading to github, feel free to contact me for more info.
+
+![1](backView2.png)
+![2](teachersView.png)
+![3](backView.png)
