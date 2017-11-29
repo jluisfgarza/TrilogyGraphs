@@ -39,6 +39,7 @@ float scaleX = 1.0f, scaleY = 1.0f, scaleZ = 1.0f;
 float scalingFactor = 1.0f;
 
 GLuint tex_2d;
+int intWINDOW_ID = -1;
 
 // We are showing 3 context variables for the 32 states
 int intContext = 0; // Only values 0, 1, or 2
@@ -52,7 +53,7 @@ void init(void)
     // load an image file directly as a new OpenGL texture
     tex_2d = SOIL_load_OGL_texture
     (
-     "/Users/elielr01/Documents/9no Semestre ITC/Gráficas Computacionales/Prueba/Prueba/mexico.png",
+     "mexico.png",
      SOIL_LOAD_AUTO,
      SOIL_CREATE_NEW_ID,
      SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
@@ -66,12 +67,12 @@ void init(void)
     
     // We load population data
     ifstream popFile;
-    popFile.open("/Users/elielr01/Documents/9no Semestre ITC/Gráficas Computacionales/Prueba/Prueba/population.txt");
+    popFile.open("population.txt");
     int index = 0;
     if (popFile.is_open()) {
         while (!popFile.eof()) {
             popFile >> STATES[0][index];
-            cout << STATES[0][index] << "\n";
+            //cout << STATES[0][index] << "\n";
             index++;
         }
     }
@@ -79,7 +80,7 @@ void init(void)
     
     // We load unemployment data
     ifstream unemployFile;
-    unemployFile.open("/Users/elielr01/Documents/9no Semestre ITC/Gráficas Computacionales/Prueba/Prueba/unemployment.txt");
+    unemployFile.open("unemployment.txt");
     index = 0;
     if (unemployFile.is_open()) {
         while (!unemployFile.eof()) {
@@ -92,7 +93,7 @@ void init(void)
     
     // We load the poverty data
     ifstream povertyFile;
-    povertyFile.open("/Users/elielr01/Documents/9no Semestre ITC/Gráficas Computacionales/Prueba/Prueba/poverty.txt");
+    povertyFile.open("poverty.txt");
     index = 0;
     if (povertyFile.is_open()) {
         while (!povertyFile.eof()) {
@@ -103,7 +104,11 @@ void init(void)
     }
     povertyFile.close();
     
-    
+    ifstream sessionFile("session.txt");
+    if (sessionFile.good()) {
+        sessionFile >> intContext;
+    }
+    sessionFile.close();
 }
 
 /*
@@ -645,6 +650,18 @@ void changeWindowSize(int width, int height) {
     glMatrixMode(GL_MODELVIEW);
 }
 
+void storeSessionData(){
+    
+    ofstream sessionFile("session.txt");
+    if (sessionFile.is_open()) {
+        sessionFile << intContext;
+    }
+    else{
+        printf("There's a problem while creating new session file.");
+    }
+    sessionFile.close();
+}
+
 void processKeyInput(unsigned char key, int x, int y) {
     if (key == 27)  // ESC Exit. DONE
         exit(0);
@@ -695,12 +712,19 @@ void processKeyInput(unsigned char key, int x, int y) {
             // Different contexts. DONE
         case '1':
             intContext = 0;
+            storeSessionData();
             break;
         case '2':
             intContext = 1;
+            storeSessionData();
             break;
         case '3':
             intContext = 2;
+            storeSessionData();
+            break;
+        case 27: // Escape key
+            glutDestroyWindow (intWINDOW_ID);
+            exit (0);
             break;
     }
     glutPostRedisplay();
@@ -725,13 +749,14 @@ void ArrowClick(int key, int x, int y) {
     }
 }
 
+
 int main(int argc, char** argv){
     
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
     glutInitWindowPosition(100, 100);
     glutInitWindowSize(900, 600);
-    glutCreateWindow("TrilogyGraphs");
+    intWINDOW_ID = glutCreateWindow("TrilogyGraphs");
     init();
     
     
@@ -742,7 +767,6 @@ int main(int argc, char** argv){
     glutDisplayFunc(sceneRenderer);
     glutIdleFunc(sceneRenderer);
     //glutMouseFunc(processMouseInput);
-    
     
     // Enter GLUT event processing cycle.
     glutMainLoop();
