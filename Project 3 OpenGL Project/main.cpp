@@ -1,15 +1,13 @@
 /*
- * GLUT Shapes Demo
+ * Trilogy Graphs
  *
- * Written by Nigel Stewart November 2003
+ * Team:
+ *  Juan Luis Flores A01280767
+ *  Alex de la Rosa
+ *  Eli Emmanuel
  *
- * This program is test harness for the sphere, cone
- * and torus shapes in GLUT.
- *
- * Spinning wireframe and smooth shaded shapes are
- * displayed until the ESC or q key is pressed.  The
- * number of geometry stacks and slices can be adjusted
- * using the + and - keys.
+ * 3D Bar Charts over Image. Create a visualization tool that
+ * is designed to compare geographically distributed scalar data.
  */
 
 #ifdef __APPLE__
@@ -21,12 +19,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-GLfloat xRotated, yRotated, zRotated;
-void init(void)
-{
-    glClearColor(0,0,0,0);
-
-}
 /*
  Function that draws a bar within the cube.
 
@@ -100,23 +92,36 @@ void drawBar( float x_coordinate, float z_coordinate,float height, float red, fl
 
 }
 
-void DrawCube(void)
-{
+// Global variables.
+float truckX = 0.0f, truckY = 0.0f, truckZ = 10.0f;
+float dollyX = 0.0f, dollyY = 0.0f, dollyZ = 0.0f;
+float boomX = 0.0f, boomY = 1.0f, boomZ = 0.0f;
+float rotateX = 0.0f, rotateY = 0.0f, rotateZ = 0.0f;
+float translateX = 0.0f, translateY = 0.0f, translateZ = 0.0f;
+float scaleX = 1.0f, scaleY = 1.0f, scaleZ = 1.0f;
+float scalingFactor = 1.0f;
+
+void sceneRenderer(void) {
 
     glMatrixMode(GL_MODELVIEW);
-    // clear the drawing buffer.
-    glClear(GL_COLOR_BUFFER_BIT);
+    // Clear color and depth buffers.
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    // Reset transformation matrix.
     glLoadIdentity();
 
-    glTranslatef(0.0,0.0,-5.5);
+    // Set up the camera.
+    gluLookAt(truckX, truckY, truckZ, dollyX, dollyY, dollyZ, boomX, boomY, boomZ);
+    glTranslatef(translateX, translateY, translateZ);
+    glTranslatef(0.0,0.0,5.5);
 
     //glPushMatrix();
-    glRotatef(xRotated,1.0,0.0,0.0);
-    // rotation about Y axis
-    glRotatef(yRotated,0.0,1.0,0.0);
-    // rotation about Z axis
-    glRotatef(zRotated,0.0,0.0,1.0);
+    glRotatef(rotateX, 1.0f, 0.0f, 0.0f);
+    glRotatef(rotateY, 0.0f, 1.0f, 0.0f);
+    glRotatef(rotateZ, 0.0f, 0.0f, 1.0f);
+    glScalef(scaleX, scaleY, scaleZ);
 
+    glPushMatrix();
+    glClearColor(1.0, 1.0, 1.0, 0.0);
     /* Draw the cube canvas */
     glBegin(GL_QUADS);        // Draw partial cube with QUADS
     glColor4f(0.8f,0.8f,0.8f, 1);    // Color Orange
@@ -170,50 +175,117 @@ void DrawCube(void)
     drawBar(-0.6, -0.6, 0.9, 1.0, 1.0, 0.0);
 
     glFlush();
+    glutSwapBuffers();
 }
 
+void changeWindowSize(int width, int height) {
+    // To prevent a window that can't exist.
+    if (height == 0) {
+        height = 1;
+    }
 
-void animation(void)
-{
+    float ratio = width * (1.0 / height);
 
-    yRotated += 0.5;
-    //xRotated += 0.2;
-    DrawCube();
-}
-
-
-void reshape(int x, int y)
-{
-    if (y == 0 || x == 0) return;  //Nothing is visible then, so return
-    //Set a new projection matrix
+    // Use and reset the projection matrix.
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    //Angle of view:40 degrees
-    //Near clipping plane distance: 0.5
-    //Far clipping plane distance: 20.0
 
-    gluPerspective(40.0,(GLdouble)x/(GLdouble)y,0.5,20.0);
+    // Set the viewport to the entire window.
+    glViewport(0, 0, width, height);
+
+    // Set the right perspective.
+    gluPerspective(45.0f, ratio, 0.1f, 100.0f);
+
+    // Bring back the model view.
     glMatrixMode(GL_MODELVIEW);
-    glViewport(0,0,x,y);  //Use the whole window for rendering
+}
+
+void processKeyInput(unsigned char key, int x, int y) {
+    if (key == 27)  // ESC Exit. DONE
+        exit(0);
+    switch (key) {
+        // Move the camera up or down. DONE
+        case 'r':
+            translateY -= 0.9f;
+            break;
+        case 'f':
+            translateY += 0.9f;
+            break;
+        // Move the camera forward or backward. DONE
+        case 'w':
+            translateZ += 0.9f;
+            break;
+        case 's':
+            translateZ -= 0.9f;
+            break;
+        // Move the camera left or right. DONE
+        case 'a':
+            translateX += 0.9f;
+            break;
+        case 'd':
+            translateX -= 0.9f;
+            break;
+        // Scale. DONE
+        case '6':
+            scaleX += 0.1;
+            break;
+        case '4':
+            scaleX -= 0.1;
+            break;
+        case '8':
+            scaleY += 0.1;
+            break;
+        case '2':
+            scaleY -= 0.1;
+            break;
+        case '7':
+            scaleZ += 0.1;
+            break;
+        case '9':
+            scaleZ -= 0.1;
+            break;
+    }
+    glutPostRedisplay();
+}
+
+void ArrowClick(int key, int x, int y) {
+    switch (key) {
+        // Look left and right. DONE
+        case GLUT_KEY_LEFT :
+            dollyX -= 0.9f;
+            break;
+        case GLUT_KEY_RIGHT :
+            dollyX += 0.9f;
+            break;
+        // Look up and down. DONE
+        case GLUT_KEY_UP :
+            dollyY += 0.9f;
+            break;
+        case GLUT_KEY_DOWN :
+            dollyY -= 0.9f;
+            break;
+    }
 }
 
 int main(int argc, char** argv){
 
     glutInit(&argc, argv);
-    //we initizlilze the glut. functions
     glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
     glutInitWindowPosition(100, 100);
-    glutCreateWindow(argv[0]);
-    init();
-
-    glutDisplayFunc(DrawCube);
-
-    glutReshapeFunc(reshape);
-
-    //Set the function for the animation.
-    glutIdleFunc(animation);
+    glutInitWindowSize(900, 900);
+    glutCreateWindow("TrilogyGraphs");
 
 
+    // Register GLUT callback functions.
+    glutReshapeFunc(changeWindowSize);
+    glutKeyboardFunc(processKeyInput);
+    glutSpecialFunc(ArrowClick); // Arrow Keys to move
+    glutDisplayFunc(sceneRenderer);
+    glutIdleFunc(sceneRenderer);
+    //glutMouseFunc(processMouseInput);
+
+
+    // Enter GLUT event processing cycle.
     glutMainLoop();
     return 0;
 }
