@@ -45,6 +45,7 @@ int intWINDOW_ID = -1;
 int intContext = 0; // Only values 0, 1, or 2
 float STATES[3][32];
 
+
 void init(void)
 {
     glClearColor(0,0,0,0);
@@ -53,16 +54,16 @@ void init(void)
     // load an image file directly as a new OpenGL texture
     tex_2d = SOIL_load_OGL_texture
     (
-     "mexico.png",
-     SOIL_LOAD_AUTO,
-     SOIL_CREATE_NEW_ID,
-     SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
-     );
-    
+    "mexico.png",
+    SOIL_LOAD_AUTO,
+    SOIL_CREATE_NEW_ID,
+    SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
+    );
+
     //check for an error during the load process
     if( 0 == tex_2d )
     {
-        printf( "SOIL loading error: '%s'\n", SOIL_last_result() );
+    printf( "SOIL loading error: '%s'\n", SOIL_last_result() );
     }
     
     // We load population data
@@ -107,8 +108,33 @@ void init(void)
     ifstream sessionFile("session.txt");
     if (sessionFile.good()) {
         sessionFile >> intContext;
+        
+        sessionFile >> truckX;
+        sessionFile >> truckY;
+        sessionFile >> truckZ;
+        
+        sessionFile >> dollyX;
+        sessionFile >> dollyY;
+        sessionFile >> dollyZ;
+        
+        sessionFile >> boomX;
+        sessionFile >> boomY;
+        sessionFile >> boomZ;
+        
+        sessionFile >> rotateX;
+        sessionFile >> rotateY;
+        sessionFile >> rotateZ;
+        
+        sessionFile >> translateX;
+        sessionFile >> translateY;
+        sessionFile >> translateZ;
+        
+        sessionFile >> scaleX;
+        sessionFile >> scaleY;
+        sessionFile >> scaleZ;
     }
     sessionFile.close();
+    
 }
 
 /*
@@ -140,7 +166,7 @@ void drawBar( float x_coordinate, float z_coordinate,float height, float red, fl
     //float square_base_size = 0.25;
     
     // We recalculate the height because y axis goes from -1 to 1
-    height = (height * 6.0) - 1.0;
+    height = (height * 8.0) - 1.0;
     
     glBegin(GL_QUADS);        // Draw the bar using QUADS
     glColor3f(red,green,blue);    // Color Blue
@@ -207,7 +233,7 @@ void drawStates() {
     
     //Baja California Sur
     drawBar(-9, -2, STATES[intContext][intStateIndex++], red, green, blue, 0.4);
-    
+
     if (red == 0.0) {
         red = 1.0;
         green = 0.0;
@@ -576,9 +602,11 @@ void drawStates() {
         red = 0.0;
         green = 1.0;
     }
+    
 }
 
 void sceneRenderer(void) {
+    
     
     glMatrixMode(GL_MODELVIEW);
     // Clear color and depth buffers.
@@ -591,22 +619,22 @@ void sceneRenderer(void) {
     glTranslatef(translateX, translateY, translateZ);
     //glTranslatef(0.0,-1,-5);
     glTranslatef(0.0,-1,5);
-    
+
     //glPushMatrix();
     glRotatef(rotateX, 1.0f, 0.0f, 0.0f);
     glRotatef(rotateY, 0.0f, 1.0f, 0.0f);
     glRotatef(rotateZ, 0.0f, 0.0f, 1.0f);
     glScalef(scaleX, scaleY, scaleZ);
-    
+
     //glRotatef(20, 1, 0, 0);
-    
+
     
     glPushMatrix();
     
     /* Draw Mexico Map */
     glEnable(GL_TEXTURE_2D);
     glBindTexture (GL_TEXTURE_2D, tex_2d);
-    
+
     glBegin(GL_QUADS);
     glColor4f(1,1,1,1);
     glVertex3f(16,-1.0f, 10);    // Front Right Quad
@@ -618,9 +646,9 @@ void sceneRenderer(void) {
     glVertex3f(16,-1.0f,-10);    // Back Left Quad
     glTexCoord2f(1, 1);
     glEnd();
-    
+
     glDisable(GL_TEXTURE_2D);
-    
+
     //Draw the bars per states
     drawStates();
     
@@ -654,7 +682,32 @@ void storeSessionData(){
     
     ofstream sessionFile("session.txt");
     if (sessionFile.is_open()) {
-        sessionFile << intContext;
+        sessionFile << intContext << "\n";
+        
+        sessionFile << fixed << truckX  << "\n";
+        sessionFile << fixed << truckY << "\n";
+        sessionFile << fixed << truckZ << "\n";
+        
+        sessionFile << fixed << dollyX << "\n";
+        sessionFile << fixed << dollyY  << "\n";
+        sessionFile << fixed << dollyZ  << "\n";
+        
+        sessionFile << fixed << boomX << "\n";
+        sessionFile << fixed << boomY << "\n";
+        sessionFile << fixed << boomZ << "\n";
+        
+        sessionFile << fixed << rotateX << "\n";
+        sessionFile << fixed << rotateY << "\n";
+        sessionFile << fixed << rotateZ << "\n";
+        
+        sessionFile << fixed << translateX << "\n";
+        sessionFile << fixed << translateY << "\n";
+        sessionFile << fixed << translateZ << "\n";
+        
+        sessionFile << fixed << scaleX << "\n";
+        sessionFile << fixed << scaleY << "\n";
+        sessionFile << fixed << scaleZ << "\n";
+        
     }
     else{
         printf("There's a problem while creating new session file.");
@@ -716,17 +769,16 @@ void processKeyInput(unsigned char key, int x, int y) {
             break;
         case '2':
             intContext = 1;
-            storeSessionData();
             break;
         case '3':
             intContext = 2;
-            storeSessionData();
             break;
         case 27: // Escape key
             glutDestroyWindow (intWINDOW_ID);
             exit (0);
             break;
     }
+    storeSessionData();
     glutPostRedisplay();
 }
 
@@ -747,6 +799,7 @@ void ArrowClick(int key, int x, int y) {
             dollyY -= 0.9f;
             break;
     }
+    storeSessionData();
 }
 
 
