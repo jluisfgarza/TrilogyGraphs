@@ -1,0 +1,33 @@
+State-Population(2015)
+México - 16,187,608
+Ciudad de México-8,918,653-
+Veracruz-8,112,505
+Jalisco-7,844,830
+Puebla-6,168,883
+Guanajuato-5,853,677
+Chiapas-5,217,908
+Nuevo León-5,119,504
+Michoacán-4,584,471
+Oaxaca-3,967,889
+Chihuahua-3,556,574
+Guerrero-3,533,251
+Tamaulipas-3,441,698
+Baja California-3,315,766
+Sinaloa-2,966,321
+Coahuila de Zaragoza-2,954,915
+Hidalgo-2,858,359
+Sonora-2,850,330
+San Luis Potosí-2,717,820
+Tabasco-2,395,272
+Yucatán-2,097,175
+Querétaro de Arteaga-2,038,372
+Morelos-1,903,811
+Durango-1,754,754
+Zacatecas-1,579,209
+Quintana Roo-1,501,562
+Aguascalientes-1,312,544
+Tlaxcala-1,272,847
+Nayarit-1,181,050
+Campeche-899,931
+Baja California Sur-712,029
+Colima-711,235
