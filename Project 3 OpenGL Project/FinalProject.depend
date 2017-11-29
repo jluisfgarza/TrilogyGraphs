@@ -1,9 +1,15 @@
 # depslib dependency file v1.0
-1511939762 source:d:\desktop\github\trilogygraphs\project 3 opengl project\main.cpp
+1511942844 source:d:\desktop\github\trilogygraphs\project 3 opengl project\main.cpp
+	<iostream>
+	<stdlib.h>
+	<vector>
+	<math.h>
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<stdlib.h>
 	<math.h>
+	<stdio.h>
+	"SOIL.h"
 
 1426371328 c:\program files (x86)\codeblocks\mingw\include\gl\glut.h
 	"freeglut_std.h"
@@ -231,4 +237,16 @@
 
 1341006774 c:\program files (x86)\codeblocks\mingw\include\math.h
 	<_mingw.h>
+
+1341006776 c:\program files (x86)\codeblocks\mingw\include\stdio.h
+	<_mingw.h>
+	<stddef.h>
+	<stdarg.h>
+	<sys/types.h>
+
+1341006780 c:\program files (x86)\codeblocks\mingw\include\sys\types.h
+	<_mingw.h>
+	<stddef.h>
+
+1511942583 d:\desktop\github\trilogygraphs\project 3 opengl project\soil.h
 

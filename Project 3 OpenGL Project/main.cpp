@@ -23,7 +23,7 @@
 
 #include <stdlib.h>
 #include <math.h>
-
+#include <stdio.h>
 #include "SOIL.h"
 
 using namespace std;
@@ -43,14 +43,14 @@ void init(void)
 {
     glClearColor(0,0,0,0);
     //glClearColor(1, 1, 1, 1);
-    
+
     // load an image file directly as a new OpenGL texture
     tex_2d = SOIL_load_OGL_texture
     (
-    "/Users/elielr01/Documents/9no Semestre ITC/Gráficas Computacionales/Prueba/Prueba/mexico.png",
-    SOIL_LOAD_AUTO,
-    SOIL_CREATE_NEW_ID,
-    SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
+        "D:/Desktop/Github/TrilogyGraphs/Project 3 OpenGL Project/mexico.png",
+        SOIL_LOAD_AUTO,
+        SOIL_CREATE_NEW_ID,
+        SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
     );
 
     //check for an error during the load process
@@ -58,14 +58,14 @@ void init(void)
     {
     printf( "SOIL loading error: '%s'\n", SOIL_last_result() );
     }
-    
+
 }
 
 /*
  Function that draws a bar within the cube.
- 
+
  Let's keep it to a grid of 3x3 where we manage coordinates (x,z) as:
- 
+
  ----------------------------------------
  |            |            |              |
  | (-0.6,-0.6)| (0.1,-0.6) |  (0.8,-0.6)  |
@@ -79,82 +79,82 @@ void init(void)
  | (-0.6,0.8) | (0.1,0.8)  |  (0.8,0.8)   |
  |            |            |              |
  ----------------------------------------
- 
+
  The height should be in a range within 0 and 1.
- 
+
  The red, green and blue parameters should be also within 0 and 1 and represent RGB
  */
 void drawBar( float x_coordinate, float z_coordinate,float height, float red, float green, float blue){
-    
+
     // This is a constant square size defined for our bars
     float square_base_size = 0.25;
-    
+
     // We recalculate the height because y axis goes from -1 to 1
     height = (height * 2.0) - 1.0;
-    
+
     glBegin(GL_QUADS);        // Draw the bar using QUADS
     glColor3f(red,green,blue);    // Color Blue
-    
+
     glVertex3f( x_coordinate, 1.0f * height, z_coordinate);    // Top Right Of The Quad (Top)
     glVertex3f(x_coordinate - square_base_size, 1.0f * height, z_coordinate);    // Top Left Of The Quad (Top)
     glVertex3f(x_coordinate - square_base_size, 1.0f * height, z_coordinate - square_base_size);    // Bottom Left Of The Quad (Top)
     glVertex3f( x_coordinate, 1.0f * height, z_coordinate - square_base_size);    // Bottom Right Of The Quad (Top)
-    
-    
+
+
     glVertex3f( x_coordinate,-1.0f, z_coordinate);    // Top Right Of The Quad (Bottom)
     glVertex3f(x_coordinate - square_base_size,-1.0f, z_coordinate);    // Top Left Of The Quad (Bottom)
     glVertex3f(x_coordinate - square_base_size,-1.0f,z_coordinate - square_base_size);    // Bottom Left Of The Quad (Bottom)
     glVertex3f( x_coordinate,-1.0f,z_coordinate - square_base_size);    // Bottom Right Of The Quad (Bottom)
-    
-    
+
+
     glVertex3f( x_coordinate, 1.0f * height, z_coordinate);    // Top Right Of The Quad (Front)
     glVertex3f(x_coordinate - square_base_size, 1.0f * height, z_coordinate);    // Top Left Of The Quad (Front)
     glVertex3f(x_coordinate - square_base_size,-1.0f, z_coordinate);    // Bottom Left Of The Quad (Front)
     glVertex3f( x_coordinate,-1.0f, z_coordinate);    // Bottom Right Of The Quad (Front)
-    
-    
+
+
     glVertex3f( x_coordinate,-1.0f,z_coordinate - square_base_size);    // Top Right Of The Quad (Back)
     glVertex3f(x_coordinate - square_base_size,-1.0f,z_coordinate - square_base_size);    // Top Left Of The Quad (Back)
     glVertex3f(x_coordinate - square_base_size, 1.0f * height,z_coordinate - square_base_size);    // Bottom Left Of The Quad (Back)
     glVertex3f( x_coordinate, 1.0f * height,z_coordinate - square_base_size);    // Bottom Right Of The Quad (Back)
-    
-    
+
+
     glVertex3f(x_coordinate - square_base_size, 1.0f * height, z_coordinate);    // Top Right Of The Quad (Left)
     glVertex3f(x_coordinate - square_base_size, 1.0f * height, z_coordinate - square_base_size);    // Top Left Of The Quad (Left)
     glVertex3f(x_coordinate - square_base_size,-1.0f, z_coordinate - square_base_size);    // Bottom Left Of The Quad (Left)
     glVertex3f(x_coordinate - square_base_size,-1.0f, z_coordinate);    // Bottom Right Of The Quad (Left)
-    
-    
+
+
     glVertex3f( x_coordinate, 1.0f * height, z_coordinate - square_base_size);    // Top Right Of The Quad (Right)
     glVertex3f( x_coordinate, 1.0f * height, z_coordinate);    // Top Left Of The Quad (Right)
     glVertex3f( x_coordinate,-1.0f, z_coordinate);    // Bottom Left Of The Quad (Right)
     glVertex3f( x_coordinate,-1.0f, z_coordinate - square_base_size);    // Bottom Right Of The Quad (Right)
-    
+
     glEnd();            // End drawing bar
-    
+
 }
 
 void sceneRenderer(void) {
-    
+
     glMatrixMode(GL_MODELVIEW);
     // Clear color and depth buffers.
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     // Reset transformation matrix.
     glLoadIdentity();
-    
+
     // Set up the camera.
     gluLookAt(truckX, truckY, truckZ, dollyX, dollyY, dollyZ, boomX, boomY, boomZ);
     glTranslatef(translateX, translateY, translateZ);
     glTranslatef(0.0,0.0,5.5);
-    
+
     //glPushMatrix();
     glRotatef(rotateX, 1.0f, 0.0f, 0.0f);
     glRotatef(rotateY, 0.0f, 1.0f, 0.0f);
     glRotatef(rotateZ, 0.0f, 0.0f, 1.0f);
     glScalef(scaleX, scaleY, scaleZ);
-    
+
     glPushMatrix();
-    
+
     /* Draw Mexico Map */
     glEnable(GL_TEXTURE_2D);
     glBindTexture (GL_TEXTURE_2D, tex_2d);
@@ -175,7 +175,7 @@ void sceneRenderer(void) {
     glEnd();
 
     glDisable(GL_TEXTURE_2D);
-    
+
     /* Draw the cube canvas */
     glBegin(GL_QUADS);        // Draw partial cube with QUADS
     glColor4f(0.8f,0.8f,0.8f, 1);    // Color Orange
@@ -194,10 +194,10 @@ void sceneRenderer(void) {
     glVertex3f(-1.0f,-1.0f,-1.0f);    // Bottom Left Of The Quad (Left)
     glVertex3f(-1.0f,-1.0f, 1.0f);    // Bottom Right Of The Quad (Left)
     glEnd();            // End drawing partial cube
-    
-    
+
+
     /* Draw Strips */
-    
+
     /* Back Strips */
     float y_strip = 0.75;
     for (int i = 1 ; i <= 7; i++, y_strip-=0.25) {
@@ -209,7 +209,7 @@ void sceneRenderer(void) {
         glVertex3f( 1.0f, y_strip - 0.02,-1.0f);    // Bottom Right Of The Quad (Back)
         glEnd();
     }
-    
+
     /* Left Strips */
     y_strip = 0.75;
     for (int i = 1 ; i <= 7; i++, y_strip-=0.25){
@@ -221,13 +221,13 @@ void sceneRenderer(void) {
         glVertex3f(-1.0f, y_strip - 0.02, 1.0f);    // Bottom Right Of The Quad (Left)
         glEnd();
     }
-    
+
     /* Draw the bars */
     drawBar(0.8, 0.8, 0.8, 1.0, 0.0, 0.0);
     drawBar(0.8, 0.1, 0.25, 0.0, 1.0, 0.0);
     drawBar(0.1, 0.1, 0.5, 0.0, 0.0, 1.0);
     drawBar(-0.6, -0.6, 0.9, 1.0, 1.0, 0.0);
-    
+
     glFlush();
     glutSwapBuffers();
 }
@@ -237,19 +237,19 @@ void changeWindowSize(int width, int height) {
     if (height == 0) {
         height = 1;
     }
-    
+
     float ratio = width * (1.0 / height);
-    
+
     // Use and reset the projection matrix.
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    
+
     // Set the viewport to the entire window.
     glViewport(0, 0, width, height);
-    
+
     // Set the right perspective.
     gluPerspective(45.0f, ratio, 0.1f, 100.0f);
-    
+
     // Bring back the model view.
     glMatrixMode(GL_MODELVIEW);
 }
@@ -322,15 +322,15 @@ void ArrowClick(int key, int x, int y) {
 }
 
 int main(int argc, char** argv){
-    
+
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
     glutInitWindowPosition(100, 100);
     glutInitWindowSize(900, 600);
     glutCreateWindow("TrilogyGraphs");
     init();
-    
-    
+
+
     // Register GLUT callback functions.
     glutReshapeFunc(changeWindowSize);
     glutKeyboardFunc(processKeyInput);
@@ -338,8 +338,8 @@ int main(int argc, char** argv){
     glutDisplayFunc(sceneRenderer);
     glutIdleFunc(sceneRenderer);
     //glutMouseFunc(processMouseInput);
-    
-    
+
+
     // Enter GLUT event processing cycle.
     glutMainLoop();
     return 0;
