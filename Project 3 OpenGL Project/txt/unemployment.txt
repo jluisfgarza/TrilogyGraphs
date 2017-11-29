@@ -1,33 +1,32 @@
-Name-2015 Second Trimester
-Aguascalientes-4.5
-Baja California-4.8
-Baja California Sur-4.3
-Campeche-2.5
-Chiapas-3.3
-Chihuahua-4.0
-Coahuila-5.3
-Colima-4.5
-Mexican Federal District-5.4
-Durango-4.8
-Guanajuato-4.4
-Guerrero-2.0
-Hidalgo-4.0
-Jalisco-5.3
-México-5.6
-Michoacán-2.8
-Morelos-3.2
-Nayarit-5.6
-Nuevo León-4.9
-Oaxaca-2.4
-Puebla-3.2
-Querétaro-5.0
-Quintana Roo-3.7
-San Luis Potosí-2.9
-Sinaloa-4.3
-Sonora-4.9
-Tabasco-6.0
-Tamaulipas-4.7
-Tlaxcala-4.5
-Veracruz-3.6
-Yucatán-2.3
-Zacatecas-2.8
+0.048
+0.043
+0.049
+0.040
+0.053
+0.049
+0.047
+0.043
+0.048
+0.028
+0.029
+0.056
+0.045
+0.053
+0.044
+0.050
+0.040
+0.036
+0.028
+0.045
+0.056
+0.054
+0.032
+0.045
+0.032
+0.020
+0.024
+0.023
+0.037
+0.025
+0.060
+0.033

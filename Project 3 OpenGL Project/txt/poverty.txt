@@ -1,34 +1,32 @@
-State-Poverty Rate(2012)
-Chiapas-74.7%
-Guerrero-69.7%
-Puebla-64.5%
-Oaxaca-61.9%
-Tlaxcala-57.9%
-Michoacán-54.4%
-Zacatecas-54.2%
-Hidalgo-52.8%
-Veracruz-52.6%
-San Luis Potosí-50.5%
-Durango-50.1%
-Tabasco-49.7%
-Yucatán-48.9%
-Nayarit-47.6%
-Mexico-45.5%
-Morelos-45.5%
-México-45.3%
-Campeche-44.7%
-Guanajuato-44.5%
-Jalisco-39.8%
-Quintana Roo-38.8%
-Tamaulipas-38.4%
-Aguascalientes-37.8%
-Querétaro-36.9%
-Sinaloa-36.3%
-Chihuahua-35.3%
-Colima-34.4%
-Baja California Sur-31.0%
-Baja California-30.2%
-Sonora-29.1%
-Federal District-28.9%
-Coahuila-27.9%
-Nuevo León
+0.302
+0.310
+0.291
+0.353
+0.279
+0.232
+0.384
+0.363
+0.501
+0.542
+0.505
+0.476
+0.378
+0.398
+0.445
+0.369
+0.528
+0.526
+0.544
+0.344
+0.453
+0.289
+0.455
+0.579
+0.645
+0.697
+0.619
+0.489
+0.388
+0.447
+0.497
+0.747
