@@ -9,5 +9,5 @@ Computer Graphics Course Project 2: POV Ray Project
 | Delivery Mode | This homework is team based activity. Do the project lab in POV Ray. Make a jpg file containing the results of your project. Upload your POV Ray project file, the ppt presentation, the fractal landscape generating code and the jpg rendering to platform using the appropriate link in this web page. Assistance to team presentation is mandatory. All participants must show equal mastery of presented subject and must speak approximately equal time with equal difficulty in spoken topics |
 
 ## Final Product
-![Island]('Island.png')
+![Island]('https://github.com/jluisfgarza/TrilogyGraphs/blob/master/2nd%20Project/Island.png?raw=true')
 
