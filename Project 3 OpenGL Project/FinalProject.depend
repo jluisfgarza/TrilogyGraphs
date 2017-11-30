@@ -1,14 +1,14 @@
 # depslib dependency file v1.0
-1511942844 source:d:\desktop\github\trilogygraphs\project 3 opengl project\main.cpp
+1512013339 source:d:\desktop\github\trilogygraphs\project 3 opengl project\main.cpp
 	<iostream>
 	<stdlib.h>
 	<vector>
 	<math.h>
+	<fstream>
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<stdlib.h>
 	<math.h>
-	<stdio.h>
 	"SOIL.h"
 
 1426371328 c:\program files (x86)\codeblocks\mingw\include\gl\glut.h
@@ -248,25 +248,25 @@
 	<_mingw.h>
 	<stddef.h>
 
-1511942583 d:\desktop\github\trilogygraphs\project 3 opengl project\soil.h
+1512012214 d:\desktop\github\trilogygraphs\project 3 opengl project\soil.h
 
-1511942583 source:d:\desktop\github\trilogygraphs\project 3 opengl project\image_dxt.c
+1512012214 source:d:\desktop\github\trilogygraphs\project 3 opengl project\image_dxt.c
 	"image_DXT.h"
 	<math.h>
 	<stdlib.h>
 	<string.h>
 	<stdio.h>
 
-1511942583 d:\desktop\github\trilogygraphs\project 3 opengl project\image_dxt.h
+1512012214 d:\desktop\github\trilogygraphs\project 3 opengl project\image_dxt.h
 
-1511942583 source:d:\desktop\github\trilogygraphs\project 3 opengl project\image_helper.c
+1512012214 source:d:\desktop\github\trilogygraphs\project 3 opengl project\image_helper.c
 	"image_helper.h"
 	<stdlib.h>
 	<math.h>
 
-1511942583 d:\desktop\github\trilogygraphs\project 3 opengl project\image_helper.h
+1512012214 d:\desktop\github\trilogygraphs\project 3 opengl project\image_helper.h
 
-1511942583 source:d:\desktop\github\trilogygraphs\project 3 opengl project\soil.c
+1512012214 source:d:\desktop\github\trilogygraphs\project 3 opengl project\soil.c
 	<windows.h>
 	<wingdi.h>
 	<GL/gl.h>
@@ -281,10 +281,10 @@
 	<stdlib.h>
 	<string.h>
 
-1511942583 d:\desktop\github\trilogygraphs\project 3 opengl project\stb_image_aug.h
+1512012214 d:\desktop\github\trilogygraphs\project 3 opengl project\stb_image_aug.h
 	<stdio.h>
 
-1511942583 source:d:\desktop\github\trilogygraphs\project 3 opengl project\stb_image_aug.c
+1512012214 source:d:\desktop\github\trilogygraphs\project 3 opengl project\stb_image_aug.c
 	"stb_image_aug.h"
 	<math.h>
 	<string.h>
@@ -302,7 +302,7 @@
 1341006770 c:\program files (x86)\codeblocks\mingw\include\assert.h
 	<_mingw.h>
 
-1511942583 d:\desktop\github\trilogygraphs\project 3 opengl project\stbi_dds_aug.h
+1512012214 d:\desktop\github\trilogygraphs\project 3 opengl project\stbi_dds_aug.h
 
-1511942583 d:\desktop\github\trilogygraphs\project 3 opengl project\stbi_dds_aug_c.h
+1512012214 d:\desktop\github\trilogygraphs\project 3 opengl project\stbi_dds_aug_c.h
 
